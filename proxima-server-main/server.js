@@ -25,7 +25,7 @@ app.use("/api/user", userRoutes);
 //mongodb
 mongoose.set("strictQuery", false);
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URL)
   .then(() => {
     //listen for request
     app.listen(port, () => {
