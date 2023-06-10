@@ -28,14 +28,17 @@ const ProjectFrom = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
     //if there is no project send post req
     if (!project) {
       //post request
-      const res = await fetch("http://localhost:5000/api/projects", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.token}`,
-        },
-        body: JSON.stringify(projectObj),
-      });
+      const res = await fetch(
+        "https://proxima-7syu.onrender.com/api/projects",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify(projectObj),
+        }
+      );
       const json = await res.json();
 
       //!req.ok, set error
@@ -109,10 +112,10 @@ const ProjectFrom = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
       >
         Add a new project
       </h2>
-      <div className="from-control flex flex-col gap-1 ">
+      <div className="flex flex-col gap-1 from-control ">
         <label
           htmlFor="title"
-          className="cursor-pointer hover:text-sky-400 duration-300"
+          className="duration-300 cursor-pointer hover:text-sky-400"
         >
           Project title
         </label>
@@ -129,10 +132,10 @@ const ProjectFrom = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           }`}
         />
       </div>
-      <div className="from-control flex flex-col gap-1 ">
+      <div className="flex flex-col gap-1 from-control ">
         <label
           htmlFor="tech"
-          className="cursor-pointer hover:text-sky-400 duration-300"
+          className="duration-300 cursor-pointer hover:text-sky-400"
         >
           Technologies
         </label>
@@ -149,10 +152,10 @@ const ProjectFrom = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           }`}
         />
       </div>
-      <div className="from-control flex flex-col gap-1 ">
+      <div className="flex flex-col gap-1 from-control ">
         <label
           htmlFor="budget"
-          className="cursor-pointer hover:text-sky-400 duration-300"
+          className="duration-300 cursor-pointer hover:text-sky-400"
         >
           Budget (in usd)
         </label>
@@ -169,10 +172,10 @@ const ProjectFrom = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           }`}
         />
       </div>
-      <div className="from-control flex flex-col gap-1 ">
+      <div className="flex flex-col gap-1 from-control ">
         <label
           htmlFor="duration"
-          className="cursor-pointer hover:text-sky-400 duration-300"
+          className="duration-300 cursor-pointer hover:text-sky-400"
         >
           Project Duration
         </label>
@@ -189,10 +192,10 @@ const ProjectFrom = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           }`}
         />
       </div>
-      <div className="from-control flex flex-col gap-1 ">
+      <div className="flex flex-col gap-1 from-control ">
         <label
           htmlFor="manager"
-          className="cursor-pointer hover:text-sky-400 duration-300"
+          className="duration-300 cursor-pointer hover:text-sky-400"
         >
           Project manager
         </label>
@@ -209,10 +212,10 @@ const ProjectFrom = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
           }`}
         />
       </div>
-      <div className="from-control flex flex-col gap-1 ">
+      <div className="flex flex-col gap-1 from-control ">
         <label
           htmlFor="dev"
-          className="cursor-pointer hover:text-sky-400 duration-300"
+          className="duration-300 cursor-pointer hover:text-sky-400"
         >
           Developers
         </label>
@@ -232,12 +235,12 @@ const ProjectFrom = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
 
       <button
         type="submit"
-        className="bg-sky-400 text-slate-900 rounded-lg py-2 hover:bg-sky-50 duration-300"
+        className="py-2 duration-300 rounded-lg bg-sky-400 text-slate-900 hover:bg-sky-50"
       >
         {project ? "Confirm Update" : "Add Project"}
       </button>
       {error && (
-        <p className="bg-rose-500/20 rounded-lg p-5 text-rose-500 border border-rose-500">
+        <p className="p-5 border rounded-lg bg-rose-500/20 text-rose-500 border-rose-500">
           {error}
         </p>
       )}
